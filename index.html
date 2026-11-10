@@ -18,8 +18,6 @@
       --border-color: #3E1E1E;
       --text-main: #FAEDEB;
       --text-muted: #B38E8C;
-      --danger: #E63946;
-      --success: #38B000;
       --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
@@ -47,20 +45,19 @@
       max-width: 440px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 4px;
+      padding: 4px 2px;
     }
 
     .app-title {
       font-size: 1.25rem;
       font-weight: 700;
-      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -78,23 +75,28 @@
       border-radius: 10px;
       cursor: pointer;
       font-size: 0.85rem;
+      transition: background 0.2s;
     }
 
-    /* Карточки */
+    .btn-icon.active {
+      background: rgba(56, 176, 0, 0.2);
+      border-color: rgba(56, 176, 0, 0.4);
+      color: #70E000;
+    }
+
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 18px;
-      padding: 18px;
+      padding: 16px;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
     }
 
-    /* Секция расписания */
+    /* График */
     .schedule-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      cursor: pointer;
     }
 
     .schedule-title {
@@ -107,8 +109,8 @@
 
     .badge-status {
       font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 12px;
+      padding: 3px 8px;
+      border-radius: 10px;
       font-weight: 600;
     }
 
@@ -125,11 +127,11 @@
     }
 
     .schedule-body {
-      margin-top: 14px;
+      margin-top: 12px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      padding-top: 12px;
+      gap: 10px;
+      padding-top: 10px;
       border-top: 1px solid var(--border-color);
     }
 
@@ -137,7 +139,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
     }
 
@@ -149,9 +151,9 @@
 
     .input-group label {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .input-group input[type="time"] {
@@ -159,25 +161,24 @@
       background: var(--bg-main);
       border: 1px solid var(--border-color);
       color: var(--text-main);
-      padding: 8px 10px;
+      padding: 7px 10px;
       border-radius: 8px;
       font-size: 0.95rem;
       font-family: inherit;
     }
 
-    /* Таймер Круг */
+    /* Круговой таймер */
     .timer-card {
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
     }
 
     .timer-svg-box {
-      width: 250px;
-      height: 250px;
+      width: 230px;
+      height: 230px;
       position: relative;
-      margin: 10px 0;
+      margin: 4px 0;
     }
 
     .timer-svg {
@@ -199,7 +200,7 @@
       stroke-linecap: round;
       stroke-dasharray: 691;
       stroke-dashoffset: 0;
-      transition: stroke-dashoffset 0.4s linear;
+      transition: stroke-dashoffset 0.3s linear;
     }
 
     .timer-text-content {
@@ -214,7 +215,6 @@
       font-size: 2.8rem;
       font-weight: 700;
       font-variant-numeric: tabular-nums;
-      color: var(--text-main);
       letter-spacing: -1px;
     }
 
@@ -223,30 +223,117 @@
       color: var(--accent-sand);
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-top: 4px;
     }
 
-    /* Кнопки управления */
+    /* Настройка интервала */
+    .custom-time-box {
+      width: 100%;
+      background: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .custom-time-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .custom-time-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .stepper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-step {
+      background: var(--bg-card-hover);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .input-minutes {
+      width: 50px;
+      text-align: center;
+      background: transparent;
+      border: none;
+      color: var(--accent-sand);
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: inherit;
+    }
+
+    .custom-time-slider {
+      width: 100%;
+      accent-color: var(--accent-scarlet-bright);
+      height: 5px;
+      cursor: pointer;
+    }
+
+    /* Пресеты */
+    .presets-row {
+      display: flex;
+      gap: 6px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .preset-btn {
+      flex: 1;
+      background: var(--bg-main);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 7px 2px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    .preset-btn.active {
+      background: var(--accent-brown);
+      color: #FFF;
+      border-color: var(--accent-scarlet);
+      font-weight: 600;
+    }
+
+    /* Управление */
     .controls-row {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       width: 100%;
-      margin-top: 8px;
+      margin-top: 12px;
     }
 
     .btn {
       flex: 1;
-      padding: 14px 16px;
+      padding: 13px 14px;
       border-radius: 12px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
       border: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      transition: transform 0.1s ease, filter 0.2s ease;
+      gap: 6px;
     }
 
     .btn:active {
@@ -265,47 +352,20 @@
       border: 1px solid var(--border-color);
     }
 
-    /* Пресеты интервалов */
-    .presets-row {
-      display: flex;
-      gap: 8px;
-      width: 100%;
-      margin-top: 14px;
-    }
-
-    .preset-btn {
-      flex: 1;
-      background: var(--bg-main);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      padding: 8px 4px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      cursor: pointer;
-    }
-
-    .preset-btn.active {
-      background: var(--accent-brown);
-      color: #FFF;
-      border-color: var(--accent-scarlet);
-      font-weight: 600;
-    }
-
-    /* Памятка по спине */
+    /* Памятка */
     .posture-reminder {
-      font-size: 0.85rem;
-      line-height: 1.45;
+      font-size: 0.82rem;
+      line-height: 1.4;
       color: var(--text-muted);
       border-left: 3px solid var(--accent-scarlet);
-      padding-left: 12px;
-      margin-top: 6px;
+      padding-left: 10px;
     }
 
     .posture-reminder strong {
       color: var(--accent-sand);
     }
 
-    /* Модальное окно разминки */
+    /* Модальное окно */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -332,31 +392,28 @@
       border-radius: 20px;
       max-width: 400px;
       width: 100%;
-      padding: 22px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      box-shadow: 0 10px 30px rgba(184, 36, 41, 0.4);
+      gap: 12px;
     }
 
     .modal-title {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--accent-sand);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-weight: 700;
     }
 
     .exercise-box {
       background: var(--bg-main);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 14px;
+      padding: 12px;
     }
 
     .exercise-step {
       margin-bottom: 8px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       line-height: 1.4;
     }
 
@@ -365,7 +422,7 @@
       font-weight: 700;
     }
 
-    /* Switch */
+    /* Toggle switch */
     .switch {
       position: relative;
       display: inline-block;
@@ -377,15 +434,15 @@
       position: absolute; cursor: pointer; inset: 0;
       background-color: var(--bg-card-hover);
       border: 1px solid var(--border-color);
-      transition: .3s;
       border-radius: 24px;
+      transition: .3s;
     }
     .slider:before {
       position: absolute; content: "";
       height: 16px; width: 16px; left: 3px; bottom: 3px;
       background-color: var(--text-muted);
-      transition: .3s;
       border-radius: 50%;
+      transition: .3s;
     }
     input:checked + .slider {
       background-color: var(--accent-scarlet);
@@ -404,20 +461,18 @@
     <div class="app-title">
       <span>●</span> Разгрузка поясницы
     </div>
-    <button class="btn-icon" id="btnNotifyReq">🔔 Пуши</button>
+    <button class="btn-icon" id="btnNotifyReq">🔔 Вкл. пуши</button>
   </header>
 
-  <!-- Блок Графика Работы -->
+  <!-- Рабочий график -->
   <div class="card">
-    <div class="schedule-header" id="scheduleToggleHeader">
-      <div class="schedule-title">
-        🕒 Рабочий график
-      </div>
+    <div class="schedule-header">
+      <div class="schedule-title">🕒 Рабочий график</div>
       <div id="scheduleBadge" class="badge-status badge-in-work">В графике</div>
     </div>
     <div class="schedule-body">
       <div class="toggle-row">
-        <span>Активировать таймер только по графику</span>
+        <span>Таймер только в рабочее время</span>
         <label class="switch">
           <input type="checkbox" id="scheduleEnabled" checked>
           <span class="slider"></span>
@@ -425,18 +480,18 @@
       </div>
       <div class="time-inputs">
         <div class="input-group">
-          <label for="workStart">Начало работы</label>
+          <label for="workStart">Начало</label>
           <input type="time" id="workStart" value="09:00">
         </div>
         <div class="input-group">
-          <label for="workEnd">Окончание работы</label>
+          <label for="workEnd">Конец</label>
           <input type="time" id="workEnd" value="19:00">
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Основной Круговой Таймер -->
+  <!-- Таймер -->
   <div class="card timer-card">
     <div class="timer-svg-box">
       <svg class="timer-svg" viewBox="0 0 250 250">
@@ -455,15 +510,29 @@
       </div>
     </div>
 
-    <!-- Кнопки пресетов -->
+    <!-- Быстрые пресеты -->
     <div class="presets-row">
-      <button class="preset-btn" data-time="25">25 мин</button>
-      <button class="preset-btn" data-time="45">45 мин</button>
-      <button class="preset-btn active" data-time="50">50 мин</button>
-      <button class="preset-btn" data-time="60">60 мин</button>
+      <button class="preset-btn" data-time="25">25 м</button>
+      <button class="preset-btn" data-time="45">45 м</button>
+      <button class="preset-btn active" data-time="50">50 м</button>
+      <button class="preset-btn" data-time="60">60 м</button>
     </div>
 
-    <!-- Управление -->
+    <!-- Ручная настройка интервала -->
+    <div class="custom-time-box">
+      <div class="custom-time-top">
+        <span class="custom-time-label">Интервал до разминки:</span>
+        <div class="stepper">
+          <button class="btn-step" id="btnMinus5">–5</button>
+          <input type="number" id="customMinutesInput" class="input-minutes" value="50" min="5" max="180">
+          <span style="font-size:0.85rem; color:var(--accent-sand);">мин</span>
+          <button class="btn-step" id="btnPlus5">+5</button>
+        </div>
+      </div>
+      <input type="range" id="customMinutesRange" class="custom-time-slider" min="5" max="180" step="5" value="50">
+    </div>
+
+    <!-- Кнопки Старт / Сброс -->
     <div class="controls-row">
       <button class="btn btn-primary" id="btnStartStop">
         <span id="startIcon">▶</span> <span id="startText">Старт</span>
@@ -472,10 +541,9 @@
     </div>
   </div>
 
-  <!-- Экспресс-подсказка -->
   <div class="card">
     <div class="posture-reminder">
-      <strong>Проверьте посадку:</strong> Поясница должна иметь плотную опору (подушка/валик), стопы ровно на полу, спинка кресла откинута на 100–110°.
+      <strong>Осанка:</strong> Поясница прижата к валику/подушке, спинка кресла откинута на 100–110°, ступни полностью на полу.
     </div>
   </div>
 </div>
@@ -483,59 +551,57 @@
 <!-- Модальное окно разминки -->
 <div class="modal-overlay" id="breakModal">
   <div class="modal-card">
-    <div class="modal-title">
-      ⚠️ 50 минут истекли! Пора встать
-    </div>
+    <div class="modal-title">⚠️ Время разгрузить спину!</div>
     <div class="exercise-box">
       <div class="exercise-step">
-        <span>1. Декомпрессия:</span> Оторвите таз от стула, встаньте, положите ладони на поясницу и мягко потянитесь макушкой вверх (без запрокидывания назад).
+        <span>1. Декомпрессия 90/90:</span> Лягте на спину, положите голени на кресло под прямым углом, расслабьте поясницу на 2 минуты.
       </div>
       <div class="exercise-step">
-        <span>2. Выпад с подкруткой:</span> Сделайте мягкий шаг вперед, подожмите ягодицу сзади стоящей ноги — снимите зажим с подвздошной мышцы (по 20 сек).
+        <span>2. Сгибатели бедра:</span> Сделайте мягкий выпад вперед, подожмите ягодицу на 20 секунд с каждой стороны.
       </div>
       <div class="exercise-step">
-        <span>3. Глоток воды:</span> Походите по комнате 2–3 минуты, чтобы межпозвоночные диски наполнились влагой.
+        <span>3. Вода и ходьба:</span> Сделайте 30 шагов по комнате и выпейте стакан чистой воды.
       </div>
     </div>
-    <button class="btn btn-primary" id="btnCloseBreak">Размялся, продолжить</button>
+    <button class="btn btn-primary" id="btnCloseBreak">Размялся, начать снова</button>
   </div>
 </div>
 
 <script>
-  // Регистрация Service Worker для Android PWA
   let swReg = null;
+
+  // Регистрация Service Worker
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js')
-        .then(reg => { swReg = reg; })
-        .catch(err => console.log('SW registration failed:', err));
+        .then(reg => {
+          swReg = reg;
+          updateNotificationButton();
+        })
+        .catch(err => console.log('SW Error:', err));
     });
   }
 
-  // Звуковой генератор Web Audio API
+  // Звуковой сигнал завершения
   function playGong() {
     try {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       const ctx = new AudioCtx();
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
-
       osc.type = 'sine';
       osc.frequency.setValueAtTime(440, ctx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 1.2);
-
       gain.gain.setValueAtTime(0.4, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
-
       osc.connect(gain);
       gain.connect(ctx.destination);
-
       osc.start();
       osc.stop(ctx.currentTime + 1.2);
     } catch(e) {}
   }
 
-  // Элементы
+  // Элементы UI
   const timeDisplay = document.getElementById('timeDisplay');
   const timerStatusLabel = document.getElementById('timerStatusLabel');
   const circleProgress = document.getElementById('circleProgress');
@@ -548,40 +614,111 @@
   const breakModal = document.getElementById('breakModal');
   const btnCloseBreak = document.getElementById('btnCloseBreak');
 
+  // Кастомный интервал
+  const customMinutesInput = document.getElementById('customMinutesInput');
+  const customMinutesRange = document.getElementById('customMinutesRange');
+  const btnMinus5 = document.getElementById('btnMinus5');
+  const btnPlus5 = document.getElementById('btnPlus5');
+
   // Расписание
   const scheduleEnabled = document.getElementById('scheduleEnabled');
   const workStartInput = document.getElementById('workStart');
   const workEndInput = document.getElementById('workEnd');
   const scheduleBadge = document.getElementById('scheduleBadge');
 
-  // Переменные таймера
-  const CIRCLE_CIRCUMFERENCE = 2 * Math.PI * 110; // ~691
+  const CIRCLE_CIRCUMFERENCE = 2 * Math.PI * 110;
   circleProgress.style.strokeDasharray = CIRCLE_CIRCUMFERENCE;
 
   let totalMinutes = 50;
   let remainingSeconds = totalMinutes * 60;
+  let targetEndTime = null;
   let timerInterval = null;
   let isRunning = false;
 
-  // Загрузка настроек из localStorage
-  if (localStorage.getItem('backTimer_workStart')) workStartInput.value = localStorage.getItem('backTimer_workStart');
-  if (localStorage.getItem('backTimer_workEnd')) workEndInput.value = localStorage.getItem('backTimer_workEnd');
-  if (localStorage.getItem('backTimer_scheduleEnabled')) {
-    scheduleEnabled.checked = localStorage.getItem('backTimer_scheduleEnabled') === 'true';
+  // Инициализация значений из хранилища
+  if (localStorage.getItem('backTimer_totalMinutes')) {
+    totalMinutes = parseInt(localStorage.getItem('backTimer_totalMinutes'), 10);
+    remainingSeconds = totalMinutes * 60;
+    customMinutesInput.value = totalMinutes;
+    customMinutesRange.value = totalMinutes;
+    syncPresetButtons(totalMinutes);
   }
 
-  // Проверка попадания в рабочий график
+  function updateNotificationButton() {
+    if (!('Notification' in window)) {
+      btnNotifyReq.style.display = 'none';
+      return;
+    }
+    if (Notification.permission === 'granted') {
+      btnNotifyReq.textContent = '✓ Пуши активны';
+      btnNotifyReq.classList.add('active');
+    } else {
+      btnNotifyReq.textContent = '🔔 Вкл. пуши';
+      btnNotifyReq.classList.remove('active');
+    }
+  }
+
+  // Управление постоянным уведомлением в шторке телефона
+  function showOngoingNotification(minsLeft) {
+    if (Notification.permission !== 'granted' || !swReg) return;
+    try {
+      swReg.showNotification('🟢 Разгрузка поясницы', {
+        body: `Осталось работать: ${minsLeft} мин. Держите спинку ровно!`,
+        tag: 'back-timer-ongoing',
+        renotify: false,
+        silent: true,
+        icon: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="45" fill="%23B82429"/%3E%3C/svg%3E'
+      });
+    } catch(e) {}
+  }
+
+  function clearOngoingNotification() {
+    if (!swReg) return;
+    swReg.getNotifications({ tag: 'back-timer-ongoing' }).then(notifs => {
+      notifs.forEach(n => n.close());
+    });
+  }
+
+  function showAlarmNotification() {
+    if (Notification.permission !== 'granted' || !swReg) return;
+    clearOngoingNotification();
+    try {
+      swReg.showNotification('⚠️ Пора встать и разгрузить спину!', {
+        body: 'Интервал сидения завершен. Сделайте 3-минутную декомпрессию поясницы.',
+        tag: 'back-timer-alarm',
+        renotify: true,
+        requireInteraction: true,
+        vibrate: [300, 150, 300, 150, 400],
+        icon: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="45" fill="%23E2363C"/%3E%3C/svg%3E'
+      });
+    } catch(e) {}
+  }
+
+  function syncPresetButtons(val) {
+    presetBtns.forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.time, 10) === val);
+    });
+  }
+
+  function setMinutes(val) {
+    val = Math.max(5, Math.min(180, val));
+    totalMinutes = val;
+    customMinutesInput.value = val;
+    customMinutesRange.value = val;
+    localStorage.setItem('backTimer_totalMinutes', val);
+    syncPresetButtons(val);
+    resetTimer();
+  }
+
+  // Расписание
   function isWithinWorkSchedule() {
     if (!scheduleEnabled.checked) return true;
-
     const now = new Date();
     const [startH, startM] = workStartInput.value.split(':').map(Number);
     const [endH, endM] = workEndInput.value.split(':').map(Number);
-
     const startTotal = startH * 60 + startM;
     const endTotal = endH * 60 + endM;
     const currentTotal = now.getHours() * 60 + now.getMinutes();
-
     return currentTotal >= startTotal && currentTotal < endTotal;
   }
 
@@ -600,46 +737,56 @@
     }
   }
 
-  // Обновление интерфейса
   function renderTime() {
     const mins = Math.floor(remainingSeconds / 60);
     const secs = remainingSeconds % 60;
     timeDisplay.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
     document.title = `${timeDisplay.textContent} — Спина`;
 
-    const totalSeconds = totalMinutes * 60;
-    const offset = CIRCLE_CIRCUMFERENCE * (1 - remainingSeconds / totalSeconds);
+    const totalSecs = totalMinutes * 60;
+    const offset = CIRCLE_CIRCUMFERENCE * (1 - remainingSeconds / totalSecs);
     circleProgress.style.strokeDashoffset = offset;
   }
 
-  // Запуск / Пауза
   function toggleTimer() {
-    if (isRunning) {
-      pauseTimer();
-    } else {
-      startTimer();
-    }
+    if (isRunning) pauseTimer();
+    else startTimer();
   }
 
   function startTimer() {
     if (!isWithinWorkSchedule()) {
-      if (!confirm("Сейчас время вне установленного рабочего графика. Все равно запустить таймер?")) {
-        return;
-      }
+      if (!confirm("Сейчас время вне рабочего графика. Все равно запустить?")) return;
     }
+
+    // Запрос пушей при первом старте, если еще не включены
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission().then(() => updateNotificationButton());
+    }
+
     isRunning = true;
     startText.textContent = "Пауза";
     startIcon.textContent = "⏸";
     timerStatusLabel.textContent = "Концентрация";
 
+    // Отсчет по точной системной временной метке (защита от сна ОС)
+    targetEndTime = Date.now() + remainingSeconds * 1000;
+    showOngoingNotification(Math.ceil(remainingSeconds / 60));
+
     timerInterval = setInterval(() => {
-      if (remainingSeconds > 0) {
-        remainingSeconds--;
-        renderTime();
-      } else {
+      const now = Date.now();
+      const diff = Math.max(0, Math.round((targetEndTime - now) / 1000));
+      remainingSeconds = diff;
+      renderTime();
+
+      // Обновление постоянного уведомления раз в минуту
+      if (remainingSeconds % 60 === 0 && remainingSeconds > 0) {
+        showOngoingNotification(Math.ceil(remainingSeconds / 60));
+      }
+
+      if (remainingSeconds <= 0) {
         completeTimer();
       }
-    }, 1000);
+    }, 500);
   }
 
   function pauseTimer() {
@@ -648,50 +795,46 @@
     startText.textContent = "Старт";
     startIcon.textContent = "▶";
     timerStatusLabel.textContent = "На паузе";
+    clearOngoingNotification();
   }
 
   function resetTimer() {
     pauseTimer();
     remainingSeconds = totalMinutes * 60;
-    timerStatusLabel.textContent = "Готов";
+    timerStatusLabel.textContent = "Работа";
     renderTime();
+    clearOngoingNotification();
   }
 
-  // Окончание интервала
   function completeTimer() {
     pauseTimer();
     playGong();
-
-    // Системное уведомление Android
-    if (Notification.permission === 'granted') {
-      const options = {
-        body: '50 минут истекли! Сделайте декомпрессию поясницы и выпейте воды.',
-        icon: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="45" fill="%23B82429"/%3E%3C/svg%3E',
-        vibrate: [200, 100, 200, 100, 200],
-        requireInteraction: true
-      };
-      if (swReg && swReg.showNotification) {
-        swReg.showNotification('Пора разгрузить спину!', options);
-      } else {
-        new Notification('Пора разгрузить спину!', options);
-      }
-    }
-
+    showAlarmNotification();
     breakModal.classList.add('active');
   }
 
-  // Слушатели событий
+  // Синхронизация при возврате экрана из сна
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && isRunning && targetEndTime) {
+      const diff = Math.max(0, Math.round((targetEndTime - Date.now()) / 1000));
+      remainingSeconds = diff;
+      renderTime();
+      if (remainingSeconds <= 0) completeTimer();
+    }
+  });
+
+  // События интерфейса
   btnStartStop.addEventListener('click', toggleTimer);
   btnReset.addEventListener('click', resetTimer);
 
   presetBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      presetBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      totalMinutes = parseInt(btn.dataset.time, 10);
-      resetTimer();
-    });
+    btn.addEventListener('click', () => setMinutes(parseInt(btn.dataset.time, 10)));
   });
+
+  customMinutesRange.addEventListener('input', (e) => setMinutes(parseInt(e.target.value, 10)));
+  customMinutesInput.addEventListener('change', (e) => setMinutes(parseInt(e.target.value, 10)));
+  btnMinus5.addEventListener('click', () => setMinutes(totalMinutes - 5));
+  btnPlus5.addEventListener('click', () => setMinutes(totalMinutes + 5));
 
   btnCloseBreak.addEventListener('click', () => {
     breakModal.classList.remove('active');
@@ -702,23 +845,13 @@
   btnNotifyReq.addEventListener('click', async () => {
     if ('Notification' in window) {
       const perm = await Notification.requestPermission();
+      updateNotificationButton();
       if (perm === 'granted') {
-        alert('Уведомления успешно подключены!');
+        showOngoingNotification(Math.ceil(remainingSeconds / 60));
       }
     }
   });
 
-  // Автосохранение графика
-  [workStartInput, workEndInput, scheduleEnabled].forEach(elem => {
-    elem.addEventListener('change', () => {
-      localStorage.setItem('backTimer_workStart', workStartInput.value);
-      localStorage.setItem('backTimer_workEnd', workEndInput.value);
-      localStorage.setItem('backTimer_scheduleEnabled', scheduleEnabled.checked);
-      updateScheduleBadge();
-    });
-  });
-
-  // Проверка графика каждые 30 секунд
   setInterval(updateScheduleBadge, 30000);
   updateScheduleBadge();
   renderTime();
