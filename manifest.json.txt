@@ -1,0 +1,18 @@
+{
+  "name": "Разгрузка спины — Таймер и Осанка",
+  "short_name": "Спина",
+  "description": "Таймер регулярной декомпрессии поясницы и упражнений при сидячей работе",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#170F0F",
+  "theme_color": "#8B1E22",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%238B1E22'/%3E%3Cpath d='M256 90c-18 0-32 14-32 32s14 32 32 32 32-14 32-32-14-32-32-32zm0 84c-22 0-40 18-40 40v30h-30c-17 0-30 13-30 30v80c0 17 13 30 30 30h30v76c0 17 13 30 30 30s30-13 30-30v-76h30c17 0 30-13 30-30v-80c0-17-13-30-30-30h-30v-30c0-22-18-40-40-40z' fill='%23FDF2E9'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
